@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,15 +6,22 @@ import {Router} from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  logeado: string = '';
 
-  constructor(private router:Router) { }
+  constructor() { }
 
   ngOnInit(): void {
+    this.logeado = localStorage.getItem('usuario') || '';
+    console.log(this.logeado); 
+  }
+
+  ngDoCheck() {
+    this.logeado = localStorage.getItem('usuario') || '';
+    console.log(this.logeado); 
   }
 
   salir() {
     localStorage.removeItem('token');
-    this.router.navigate(['login']);
-}
-
+    localStorage.removeItem('usuario');
+  }
 }

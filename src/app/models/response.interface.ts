@@ -1,6 +1,6 @@
 export interface IResponse {
     codigoRetorno: string;
     mensajeRetorno: string;
-    usuario: {};
+    usuario: {nombre:string, plan:number};
     token: string;  
 }

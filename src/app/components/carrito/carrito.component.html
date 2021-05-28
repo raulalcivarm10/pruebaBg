@@ -17,9 +17,9 @@
                 <td>{{producto.descripcion}}</td>
                 <td>{{producto.precio}}</td>
                 <td>
-                     <button (click)="acumular (-1)"> -1</button>
+                     <button (click)="acumular(-1)" > -1</button>
                      {{numero}}
-                     <button (click)="acumular (+1)"> +1 </button>
+                     <button (click)="acumular(+1)"> +1 </button>
                 </td>
                 <td>
                 <p><strong>{{producto.precio * numero |currency}}</strong></p></td>
@@ -31,6 +31,6 @@
             <strong>Total a Pagar : {{totalp}}</strong>  
 
         </div>
-        <button class="btn btn-primary" >comprar</button>
+        <button class="btn btn-primary" (click)="totalpa()">comprar</button>
     </div>
 </div>

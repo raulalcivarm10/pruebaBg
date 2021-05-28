@@ -23,8 +23,6 @@ export class ProductoSeleccionadoComponent implements OnInit {
         this.productos = data.data;
       }
     });
-
-    console.log(JSON.parse(localStorage.getItem('token')!));
   }
 
   agregarProducto(producto: any) {
@@ -34,7 +32,7 @@ export class ProductoSeleccionadoComponent implements OnInit {
 
       if(!localStorage.getItem('productos')) 
         localStorage.setItem('productos', JSON.stringify([]));
-        console.log(JSON.parse(localStorage.getItem('productos')!));
+        
       listaProductos = localStorage.getItem('productos')!;
       let lista = JSON.parse(listaProductos);
       lista.push(producto);

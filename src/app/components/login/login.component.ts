@@ -26,10 +26,11 @@ export class LoginComponent implements OnInit {
     
     this._apiService.onLogin(form).subscribe(data => {
           if(data.codigoRetorno === '0001') {
-            localStorage.setItem('token', JSON.stringify(data.usuario));
+            localStorage.setItem('token', JSON.stringify([data.token]));
+            localStorage.setItem('usuario', data.usuario.nombre);
+            //localStorage.setItem('plan', data.usuario.plan.toString());
             this.router.navigate(['productos']);
           }
-         
     });
   }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito.service';
-import { IProducto } from '../../models/productos.interface';
 import { ProductoService } from '../../services/producto.service';
 
 
@@ -12,7 +11,7 @@ import { ProductoService } from '../../services/producto.service';
 })
 export class CarritoComponent implements OnInit {
   productos : any = [];
-  numero: number = 0;
+  numero: number = 1;
   total : number = 0;
   totalp: number=0;
 
@@ -24,6 +23,13 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
   this.cargarcarrito();
   this.totalpa();
+  }
+
+  ngDoCheck() {
+    this.totalp = 0;
+    for (let pp of this.productos){
+      this.totalp=this.totalp+(this.numero*pp.precio)
+    }
   }
 
 
@@ -52,7 +58,7 @@ export class CarritoComponent implements OnInit {
     for (let pp of this.productos){
       this.totalp=this.totalp+(this.numero*pp.precio)
     }
-    return this.totalp
+    //return this.totalp
   }
   
 
