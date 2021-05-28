@@ -1,0 +1,36 @@
+<h1 class="text-center">Productos a Comprar</h1>
+
+<div class="table-responsive-sm" style="width: 100%; margin: 20px auto">
+    <table class="table table-hover">
+        <thead class="thead-Sector text-center bg-dark text-white">
+            <tr class="text-center">
+                <td>Descripción</td>
+                <td>Precio</td>
+                <td>Cantidad</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody class="table-bordered " id="table_body">
+            <tr *ngFor="let producto of productos" class="text-center">
+              <input type="hidden" value="{{totalp}}">
+
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precio}}</td>
+                <td>
+                     <button (click)="acumular (-1)"> -1</button>
+                     {{numero}}
+                     <button (click)="acumular (+1)"> +1 </button>
+                </td>
+                <td>
+                <p><strong>{{producto.precio * numero |currency}}</strong></p></td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align:center;">
+        <div>
+            <strong>Total a Pagar : {{totalp}}</strong>  
+
+        </div>
+        <button class="btn btn-primary" >comprar</button>
+    </div>
+</div>

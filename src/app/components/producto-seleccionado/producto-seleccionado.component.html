@@ -1,0 +1,15 @@
+<div class="container-productos">
+    <div *ngFor="let producto of productos" class="card" style="width: 18rem;">
+        <div class="text-center">
+            <img src="{{producto.imagen}}" class="card-img-top" alt="{{producto.imagen}}">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{producto.descripcion}}</h5>
+          <p class="card-text">
+              {{producto.detalle}}
+          </p>
+          <button class="btn btn-outline-danger" (click)="agregarProducto(producto)">Add to cart</button>
+        </div>
+    </div>
+</div>
+

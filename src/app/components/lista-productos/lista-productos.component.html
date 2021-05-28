@@ -1,0 +1,26 @@
+<h1 class="text-center">Lista de Productos</h1>
+
+<div class="table-responsive-sm" style="width: 100%; margin: 20px auto">
+    <table class="table table-hover">
+        <thead class="thead-Sector text-center bg-dark text-white">
+            <tr class="text-center">
+                <td>Descripción</td>
+                <td>Precio</td>
+                <td>Cantidad</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody class="table-bordered " id="table_body">
+            <tr *ngFor="let producto of productos" class="text-center">
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precio}}</td>
+                <td>
+                     <button (click)="acumular(-1)"> -1</button>
+                     {{numero}}
+                     <button (click)="acumular(+1)"> +1 </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
